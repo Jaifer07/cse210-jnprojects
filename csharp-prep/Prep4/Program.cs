@@ -5,21 +5,29 @@ class Program
 {
    static void Main(string[] args)
   {   
-    Console.WriteLine("Enter a list of numbers, type 0 when finished"); 
-
+    
      List<int> numbers = new List<int>();
      int response = -1;
      do
      {
-         Console.Write("Enter a number ");
+         Console.Write("Enter a number and type 0 when finished ");
          response = int.Parse(Console.ReadLine());
+
+         if (response != 0)
+         {
+          numbers.Add(response);
+         }
+
      } while (response != 0);     
      
 
-      for (int i = 0; i < numbers.Count; i++)
+      
+      
+      if (response != 0)
       {
-      Console.WriteLine(numbers[i]);
+        numbers.Add(response);
       }
+      
       
       // Computing the sum 
 
@@ -29,23 +37,23 @@ class Program
         sum += number;        
       }
 
-     Console.WriteLine($"The sum is {sum}"); 
+      Console.WriteLine($"The sum is {sum}");         
 
      //Calculating the average
 
-     float average = ((float)sum) / numbers.Count;
-     Console.Writeline($"The average is: {average}");
+      float average = ((float)sum) / numbers.Count;
+      Console.WriteLine($"The average is: {average}");
 
-     int max = numbers[0];
+      int max = numbers[0];
 
-        foreach (int number in numbers)
-        {
-            if (number > max)
-            {
-                max = number;
-            }
-        }
+      foreach (int number in numbers)
+      {
+      if (number > max)
+      {
+      max = number;
+      }
+      }
 
-        Console.WriteLine($"The max number is: {max}");
+      Console.WriteLine($"The max number is: {max}");
   }
 }
